@@ -52,7 +52,7 @@ export function ProcessTimeline() {
         {/* Desktop Timeline */}
         <div className="hidden md:block relative">
           {/* Connecting Line */}
-          <div className="absolute top-16 left-0 right-0 h-0.5 bg-neutral-200">
+          <div className="absolute top-16 left-0 right-0 h-0.5 bg-neutral-200 z-0">
             <motion.div
               initial={{ scaleX: 0 }}
               animate={isInView ? { scaleX: 1 } : {}}
@@ -73,7 +73,7 @@ export function ProcessTimeline() {
                   className="text-center"
                 >
                   {/* Icon Circle */}
-                  <div className="relative inline-flex items-center justify-center w-16 h-16 rounded-full bg-white border-4 border-accent shadow-medium mb-6 z-10">
+                  <div className="relative inline-flex items-center justify-center w-16 h-16 rounded-full bg-white border-4 border-accent shadow-medium mb-6 z-10 isolate">
                     <Icon className="h-7 w-7 text-primary" />
                   </div>
 

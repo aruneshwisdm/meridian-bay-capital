@@ -51,11 +51,28 @@ function CountUp({
   suffix?: string;
 }) {
   const [count, setCount] = useState(0);
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
   const ref = useRef<HTMLSpanElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
+  // Check for reduced motion preference
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    setPrefersReducedMotion(mediaQuery.matches);
+
+    const handler = (e: MediaQueryListEvent) => setPrefersReducedMotion(e.matches);
+    mediaQuery.addEventListener('change', handler);
+    return () => mediaQuery.removeEventListener('change', handler);
+  }, []);
+
   useEffect(() => {
     if (!isInView) return;
+
+    // Skip animation if user prefers reduced motion
+    if (prefersReducedMotion) {
+      setCount(end);
+      return;
+    }
 
     const startTime = performance.now();
     const endValue = end;
@@ -76,7 +93,7 @@ function CountUp({
     };
 
     requestAnimationFrame(animate);
-  }, [isInView, end, duration]);
+  }, [isInView, end, duration, prefersReducedMotion]);
 
   const displayValue = end < 10 ? count.toFixed(1) : Math.round(count);
 

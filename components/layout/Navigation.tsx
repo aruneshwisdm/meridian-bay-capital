@@ -44,7 +44,7 @@ export function Navigation() {
     <>
       <header
         className={cn(
-          "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+          "fixed top-0 left-0 right-0 z-40 transition-all duration-300",
           isScrolled
             ? "bg-white/95 backdrop-blur-md shadow-soft"
             : "bg-white"
@@ -54,10 +54,10 @@ export function Navigation() {
         <div className="hidden md:block bg-primary-50 border-b border-primary-100">
           <div className="container-main">
             <div className="flex items-center justify-center gap-4 py-1.5">
-              <div className="flex items-center gap-2 text-caption text-primary">
+              <div className="flex items-center gap-2 text-caption text-primary-700">
                 <Shield className="h-3 w-3" />
                 <span>{COMPANY.registration.sec}</span>
-                <span className="text-primary-300">•</span>
+                <span className="text-primary-400">•</span>
                 <span>{COMPANY.registration.fiduciary}</span>
               </div>
             </div>
@@ -68,7 +68,7 @@ export function Navigation() {
           <div className="flex items-center justify-between h-18 md:h-20">
             {/* Logo */}
             <Link href="/" className="flex-shrink-0 group">
-              <div className="flex flex-col">
+              <div className="flex flex-col transition-opacity duration-300 group-hover:opacity-80">
                 <span className="font-heading font-bold text-xl md:text-2xl text-primary tracking-tight">
                   MERIDIAN BAY
                 </span>
@@ -216,7 +216,7 @@ export function Navigation() {
       </AnimatePresence>
 
       {/* Spacer to account for fixed header */}
-      <div className="h-18 md:h-[calc(4.5rem+2rem)]" />
+      <div className="h-[72px] md:h-[104px]" />
     </>
   );
 }

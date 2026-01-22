@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { motion } from "framer-motion";
-import { ArrowRight, ArrowLeft, Phone, Mail, MapPin, Clock, Shield, CheckCircle } from "lucide-react";
+import { ArrowRight, ArrowLeft, Phone, Mail, MapPin, Clock, Shield, CheckCircle, ChevronDown } from "lucide-react";
 import { Button, Input, Card } from "@/components/ui";
 import { COMPANY } from "@/lib/constants";
 import { cn } from "@/lib/utils/cn";
@@ -57,6 +57,7 @@ export default function ContactPage() {
     formState: { errors },
     watch,
     setValue,
+    trigger,
   } = useForm<FormData>({
     defaultValues: {
       investmentGoals: [],
@@ -83,7 +84,18 @@ export default function ContactPage() {
     setIsSubmitted(true);
   };
 
-  const nextStep = () => setCurrentStep((s) => Math.min(s + 1, 3));
+  const nextStep = async () => {
+    const fieldsToValidate: Record<number, (keyof FormData)[]> = {
+      1: ['firstName', 'lastName', 'email', 'phone'],
+      2: [],
+      3: [],
+    };
+
+    const isValid = await trigger(fieldsToValidate[currentStep]);
+    if (isValid) {
+      setCurrentStep((s) => Math.min(s + 1, 3));
+    }
+  };
   const prevStep = () => setCurrentStep((s) => Math.max(s - 1, 1));
 
   if (isSubmitted) {
@@ -217,7 +229,7 @@ export default function ContactPage() {
                         {...register("phone", { required: "Phone is required" })}
                       />
 
-                      <Button type="button" variant="primary" className="w-full" onClick={nextStep}>
+                      <Button type="button" variant="primary" className="w-full" onClick={() => nextStep()}>
                         Continue
                         <ArrowRight className="h-4 w-4 ml-2" />
                       </Button>
@@ -245,6 +257,7 @@ export default function ContactPage() {
                               key={option}
                               className={cn(
                                 "flex items-center justify-center p-3 rounded-lg border-2 cursor-pointer transition-all",
+                                "focus-within:ring-2 focus-within:ring-primary focus-within:ring-offset-2",
                                 watch("netWorth") === option
                                   ? "border-primary bg-primary-50"
                                   : "border-neutral-200 hover:border-neutral-300"
@@ -274,6 +287,7 @@ export default function ContactPage() {
                               onClick={() => toggleGoal(goal)}
                               className={cn(
                                 "flex items-center justify-center p-3 rounded-lg border-2 transition-all text-left",
+                                "focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2",
                                 selectedGoals.includes(goal)
                                   ? "border-primary bg-primary-50"
                                   : "border-neutral-200 hover:border-neutral-300"
@@ -290,7 +304,7 @@ export default function ContactPage() {
                           <ArrowLeft className="h-4 w-4 mr-2" />
                           Back
                         </Button>
-                        <Button type="button" variant="primary" className="flex-1" onClick={nextStep}>
+                        <Button type="button" variant="primary" className="flex-1" onClick={() => nextStep()}>
                           Continue
                           <ArrowRight className="h-4 w-4 ml-2" />
                         </Button>
@@ -314,31 +328,37 @@ export default function ContactPage() {
                           <label className="block text-body-sm font-medium text-text mb-2">
                             Preferred Day
                           </label>
-                          <select
-                            {...register("preferredDay")}
-                            className="w-full px-4 py-3 bg-white border border-neutral-400 rounded-lg text-text"
-                          >
-                            <option value="">Select a day</option>
-                            <option value="monday">Monday</option>
-                            <option value="tuesday">Tuesday</option>
-                            <option value="wednesday">Wednesday</option>
-                            <option value="thursday">Thursday</option>
-                            <option value="friday">Friday</option>
-                          </select>
+                          <div className="relative">
+                            <select
+                              {...register("preferredDay")}
+                              className="w-full px-4 py-3 pr-10 bg-white border border-neutral-400 rounded-lg text-text appearance-none focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
+                            >
+                              <option value="">Select a day</option>
+                              <option value="monday">Monday</option>
+                              <option value="tuesday">Tuesday</option>
+                              <option value="wednesday">Wednesday</option>
+                              <option value="thursday">Thursday</option>
+                              <option value="friday">Friday</option>
+                            </select>
+                            <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 h-5 w-5 text-text-tertiary pointer-events-none" />
+                          </div>
                         </div>
                         <div>
                           <label className="block text-body-sm font-medium text-text mb-2">
                             Preferred Time
                           </label>
-                          <select
-                            {...register("preferredTime")}
-                            className="w-full px-4 py-3 bg-white border border-neutral-400 rounded-lg text-text"
-                          >
-                            <option value="">Select a time</option>
-                            <option value="morning">Morning (8am - 12pm)</option>
-                            <option value="afternoon">Afternoon (12pm - 5pm)</option>
-                            <option value="evening">Evening (5pm - 7pm)</option>
-                          </select>
+                          <div className="relative">
+                            <select
+                              {...register("preferredTime")}
+                              className="w-full px-4 py-3 pr-10 bg-white border border-neutral-400 rounded-lg text-text appearance-none focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
+                            >
+                              <option value="">Select a time</option>
+                              <option value="morning">Morning (8am - 12pm)</option>
+                              <option value="afternoon">Afternoon (12pm - 5pm)</option>
+                              <option value="evening">Evening (5pm - 7pm)</option>
+                            </select>
+                            <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 h-5 w-5 text-text-tertiary pointer-events-none" />
+                          </div>
                         </div>
                       </div>
 
@@ -350,7 +370,7 @@ export default function ContactPage() {
                           {...register("message")}
                           rows={4}
                           placeholder="Tell us more about what you'd like to discuss..."
-                          className="w-full px-4 py-3 bg-white border border-neutral-400 rounded-lg text-text placeholder:text-text-tertiary resize-none"
+                          className="w-full px-4 py-3 bg-white border border-neutral-400 rounded-lg text-text placeholder:text-text-tertiary resize-none focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
                         />
                       </div>
 

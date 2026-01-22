@@ -22,6 +22,7 @@ import {
   LogOut,
   ArrowUpRight,
   ArrowDownRight,
+  Info,
 } from "lucide-react";
 import { Card, Button, Badge } from "@/components/ui";
 import { formatCurrency, formatPercent, formatDate } from "@/lib/utils/formatting";
@@ -81,6 +82,17 @@ export default function DashboardPage() {
       </div>
 
       <div className="container-main py-8">
+        {/* Demo Mode Banner */}
+        <div className="bg-accent-50 border border-accent-200 rounded-lg p-4 mb-6 flex items-start gap-3">
+          <Info className="h-5 w-5 text-accent-600 flex-shrink-0 mt-0.5" />
+          <div>
+            <p className="font-semibold text-body-md text-accent-700">Demo Mode</p>
+            <p className="text-body-sm text-accent-600">
+              This dashboard shows sample data for illustration purposes only. Actual client portals display real-time portfolio information.
+            </p>
+          </div>
+        </div>
+
         <div className="grid lg:grid-cols-3 gap-6">
           {/* Main Content - 2 columns */}
           <div className="lg:col-span-2 space-y-6">
@@ -118,6 +130,7 @@ export default function DashboardPage() {
                       onClick={() => setSelectedRange(range)}
                       className={cn(
                         "px-3 py-1.5 rounded-lg font-medium text-body-sm transition-colors",
+                        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2",
                         selectedRange === range
                           ? "bg-primary text-white"
                           : "text-text-secondary hover:bg-neutral-100"
@@ -161,6 +174,8 @@ export default function DashboardPage() {
                     <Tooltip
                       formatter={(value) => [formatCurrency(value as number), "Portfolio Value"]}
                       labelFormatter={(label) => formatDate(String(label), { format: "long" })}
+                      labelStyle={{ color: "#2B2D42", fontWeight: 600 }}
+                      itemStyle={{ color: "#2B2D42" }}
                       contentStyle={{
                         backgroundColor: "white",
                         border: "1px solid #E8DCC4",
@@ -206,10 +221,13 @@ export default function DashboardPage() {
                       </Pie>
                       <Tooltip
                         formatter={(value) => [`${value}%`, "Allocation"]}
+                        labelStyle={{ color: "#2B2D42", fontWeight: 600 }}
+                        itemStyle={{ color: "#2B2D42" }}
                         contentStyle={{
                           backgroundColor: "white",
                           border: "1px solid #E8DCC4",
                           borderRadius: "8px",
+                          boxShadow: "0 4px 12px rgba(10, 36, 99, 0.1)",
                         }}
                       />
                     </PieChart>

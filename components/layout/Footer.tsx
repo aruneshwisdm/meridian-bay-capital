@@ -73,7 +73,7 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-body-sm text-white/70 hover:text-white transition-colors"
+                    className="text-body-sm text-white/70 hover:text-white hover:underline underline-offset-4 transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -90,7 +90,7 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-body-sm text-white/70 hover:text-white transition-colors"
+                    className="text-body-sm text-white/70 hover:text-white hover:underline underline-offset-4 transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -107,7 +107,7 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-body-sm text-white/70 hover:text-white transition-colors"
+                    className="text-body-sm text-white/70 hover:text-white hover:underline underline-offset-4 transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -128,7 +128,7 @@ export function Footer() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-caption text-white/60 hover:text-white transition-colors"
+                className="text-caption text-white/60 hover:text-white hover:underline underline-offset-4 transition-colors"
               >
                 {link.label}
               </Link>

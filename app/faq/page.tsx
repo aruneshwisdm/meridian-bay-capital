@@ -13,18 +13,25 @@ function FAQItem({
   answer,
   isOpen,
   onToggle,
+  id,
 }: {
   question: string;
   answer: string;
   isOpen: boolean;
   onToggle: () => void;
+  id: string;
 }) {
+  const triggerId = `faq-trigger-${id}`;
+  const panelId = `faq-panel-${id}`;
+
   return (
     <div className="border-b border-neutral-200 last:border-0">
       <button
+        id={triggerId}
         onClick={onToggle}
-        className="flex items-center justify-between w-full py-5 text-left group"
+        className="flex items-center justify-between w-full py-5 text-left group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-inset rounded-lg"
         aria-expanded={isOpen}
+        aria-controls={panelId}
       >
         <span className="font-heading font-semibold text-heading-sm text-text pr-4 group-hover:text-primary transition-colors">
           {question}
@@ -39,6 +46,9 @@ function FAQItem({
       <AnimatePresence initial={false}>
         {isOpen && (
           <motion.div
+            id={panelId}
+            role="region"
+            aria-labelledby={triggerId}
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
@@ -128,6 +138,7 @@ export default function FAQPage() {
                       }}
                       className={cn(
                         "w-full text-left px-4 py-2.5 rounded-lg font-medium text-body-md transition-colors",
+                        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2",
                         selectedCategory === category && !searchQuery
                           ? "bg-primary text-white"
                           : "text-text-secondary hover:bg-white hover:text-primary"
@@ -153,6 +164,7 @@ export default function FAQPage() {
                   displayFAQs.map((faq, index) => (
                     <FAQItem
                       key={`${faq.category}-${index}`}
+                      id={`${faq.category.toLowerCase().replace(/\s+/g, '-')}-${index}`}
                       question={faq.question}
                       answer={faq.answer}
                       isOpen={openIndex === index}

@@ -209,6 +209,7 @@ export function InvestmentCalculator() {
                     name === "contributions" ? "Total Contributions" : "Portfolio Value",
                   ]}
                   labelStyle={{ color: "#2B2D42", fontWeight: 600 }}
+                  itemStyle={{ color: "#2B2D42" }}
                   contentStyle={{
                     backgroundColor: "white",
                     border: "1px solid #E8DCC4",

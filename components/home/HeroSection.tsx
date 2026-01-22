@@ -15,7 +15,7 @@ export function HeroSection() {
   };
 
   return (
-    <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-ocean">
+    <section className="relative min-h-[85vh] md:min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-ocean" style={{ minHeight: '85dvh' }}>
       {/* Background Pattern */}
       <div className="absolute inset-0">
         {/* Horizon gradient overlay */}

@@ -109,17 +109,17 @@ export function TestimonialsSection() {
             </div>
 
             {/* Navigation Arrows */}
-            <div className="hidden md:flex items-center justify-between absolute top-1/2 -translate-y-1/2 left-0 right-0 px-4">
+            <div className="flex items-center justify-between absolute top-1/2 -translate-y-1/2 left-0 right-0 px-2 md:px-4">
               <button
                 onClick={goToPrevious}
-                className="w-10 h-10 rounded-full bg-white shadow-soft flex items-center justify-center text-text hover:text-primary hover:shadow-medium transition-all"
+                className="w-10 h-10 rounded-full bg-white shadow-soft flex items-center justify-center text-text hover:text-primary hover:shadow-medium focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 transition-all"
                 aria-label="Previous testimonial"
               >
                 <ChevronLeft className="h-5 w-5" />
               </button>
               <button
                 onClick={goToNext}
-                className="w-10 h-10 rounded-full bg-white shadow-soft flex items-center justify-center text-text hover:text-primary hover:shadow-medium transition-all"
+                className="w-10 h-10 rounded-full bg-white shadow-soft flex items-center justify-center text-text hover:text-primary hover:shadow-medium focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 transition-all"
                 aria-label="Next testimonial"
               >
                 <ChevronRight className="h-5 w-5" />
@@ -127,20 +127,27 @@ export function TestimonialsSection() {
             </div>
 
             {/* Dots Navigation */}
-            <div className="flex items-center justify-center gap-2 mt-8">
+            <div className="flex items-center justify-center gap-3 mt-8">
               {testimonials.map((_, index) => (
                 <button
                   key={index}
                   onClick={() => goToSlide(index)}
                   className={cn(
-                    "w-2.5 h-2.5 rounded-full transition-all duration-300",
-                    index === activeIndex
-                      ? "bg-primary w-8"
-                      : "bg-neutral-300 hover:bg-neutral-400"
+                    "min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full transition-all duration-300",
+                    "focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
                   )}
                   aria-label={`Go to testimonial ${index + 1}`}
                   aria-current={index === activeIndex ? "true" : "false"}
-                />
+                >
+                  <span
+                    className={cn(
+                      "rounded-full transition-all duration-300",
+                      index === activeIndex
+                        ? "bg-primary w-8 h-2.5"
+                        : "bg-neutral-300 hover:bg-neutral-400 w-2.5 h-2.5"
+                    )}
+                  />
+                </button>
               ))}
             </div>
           </div>

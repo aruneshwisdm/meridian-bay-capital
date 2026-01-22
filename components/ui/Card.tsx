@@ -14,7 +14,7 @@ const Card = forwardRef<HTMLDivElement, CardProps>(
 
     const variants = {
       default: "shadow-soft",
-      hover: "shadow-soft hover:-translate-y-1 hover:shadow-medium cursor-pointer",
+      hover: "shadow-soft hover:-translate-y-1 hover:shadow-medium focus-within:-translate-y-1 focus-within:shadow-medium cursor-pointer",
       bordered: "border border-neutral-300",
     };
 
