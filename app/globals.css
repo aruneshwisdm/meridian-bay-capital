@@ -2,26 +2,255 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/* Import Design System */
+@import '../styles/design-system.css';
+@import '../styles/animations.css';
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-background text-text font-body;
+    font-feature-settings: 'liga' 1, 'calt' 1;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading font-bold text-text;
+  }
+
+  h1 {
+    @apply text-display-lg md:text-display-xl;
+  }
+
+  h2 {
+    @apply text-display-sm md:text-display-md;
+  }
+
+  h3 {
+    @apply text-heading-xl md:text-display-sm;
+  }
+
+  h4 {
+    @apply text-heading-lg md:text-heading-xl;
+  }
+
+  h5 {
+    @apply text-heading-md md:text-heading-lg;
+  }
+
+  h6 {
+    @apply text-heading-sm md:text-heading-md;
+  }
+
+  p {
+    @apply text-body-md leading-relaxed text-text-secondary;
+  }
+
+  a {
+    @apply text-primary transition-colors duration-300 hover:text-secondary;
+  }
+
+  /* Form defaults */
+  input, textarea, select {
+    @apply font-body text-body-md;
+  }
+
+  /* Numbers and financial data */
+  .font-mono,
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  /* Container */
+  .container-main {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .container-narrow {
+    @apply max-w-4xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .container-wide {
+    @apply max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Section spacing */
+  .section-padding {
+    @apply py-16 md:py-24 lg:py-32;
+  }
+
+  .section-padding-sm {
+    @apply py-12 md:py-16 lg:py-20;
+  }
+
+  /* Buttons */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3
+           font-heading font-semibold text-body-md
+           rounded-lg transition-all duration-300
+           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2;
+  }
+
+  .btn-primary {
+    @apply btn bg-primary text-white
+           hover:bg-primary-600 active:bg-primary-800
+           focus-visible:ring-primary;
+  }
+
+  .btn-secondary {
+    @apply btn bg-white text-primary border-2 border-primary
+           hover:bg-primary-50 active:bg-primary-100
+           focus-visible:ring-primary;
+  }
+
+  .btn-accent {
+    @apply btn bg-accent text-text
+           hover:bg-accent-600 active:bg-accent-700
+           focus-visible:ring-accent shadow-glow-gold;
+  }
+
+  .btn-ghost {
+    @apply btn bg-transparent text-primary
+           hover:bg-primary-50 active:bg-primary-100
+           focus-visible:ring-primary;
+  }
+
+  .btn-outline-white {
+    @apply btn bg-transparent text-white border-2 border-white
+           hover:bg-white/10 active:bg-white/20
+           focus-visible:ring-white;
+  }
+
+  .btn-sm {
+    @apply px-4 py-2 text-body-sm;
+  }
+
+  .btn-lg {
+    @apply px-8 py-4 text-body-lg;
+  }
+
+  /* Cards */
+  .card {
+    @apply bg-white rounded-xl p-6 shadow-soft
+           transition-all duration-300;
+  }
+
+  .card-hover {
+    @apply card hover:-translate-y-1 hover:shadow-medium;
+  }
+
+  .card-bordered {
+    @apply card border border-neutral-300;
+  }
+
+  /* Form inputs */
+  .input {
+    @apply w-full px-4 py-3 bg-white border border-neutral-400
+           rounded-lg text-text placeholder:text-text-tertiary
+           transition-all duration-300
+           focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary;
+  }
+
+  .input-error {
+    @apply input border-red-500 focus:ring-red-500/20 focus:border-red-500;
+  }
+
+  .label {
+    @apply block text-body-sm font-medium text-text mb-2;
+  }
+
+  /* Links with underline animation */
+  .link-underline {
+    @apply relative inline-block;
+  }
+
+  .link-underline::after {
+    content: '';
+    @apply absolute left-0 bottom-0 w-full h-0.5 bg-accent
+           scale-x-0 origin-right transition-transform duration-300;
+  }
+
+  .link-underline:hover::after {
+    @apply scale-x-100 origin-left;
+  }
+
+  /* Badge */
+  .badge {
+    @apply inline-flex items-center px-3 py-1
+           text-caption font-medium rounded-full;
+  }
+
+  .badge-primary {
+    @apply badge bg-primary-50 text-primary;
+  }
+
+  .badge-accent {
+    @apply badge bg-accent-50 text-accent-700;
+  }
+
+  .badge-success {
+    @apply badge bg-success-50 text-success;
+  }
+
+  /* Divider */
+  .divider {
+    @apply h-px w-full bg-gradient-to-r from-transparent via-neutral-400 to-transparent;
+  }
+
+  .divider-gold {
+    @apply h-px w-full bg-gradient-to-r from-transparent via-accent to-transparent;
+  }
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+
+  /* Gradient text */
+  .text-gradient-ocean {
+    @apply bg-gradient-ocean bg-clip-text text-transparent;
+  }
+
+  .text-gradient-gold {
+    @apply bg-gradient-gold bg-clip-text text-transparent;
+  }
+
+  /* Hide scrollbar but keep functionality */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Aspect ratios */
+  .aspect-portrait {
+    aspect-ratio: 3/4;
+  }
+
+  .aspect-landscape {
+    aspect-ratio: 4/3;
+  }
+
+  .aspect-wide {
+    aspect-ratio: 16/9;
+  }
+
+  /* Safe area padding for mobile */
+  .safe-top {
+    padding-top: env(safe-area-inset-top);
+  }
+
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
   }
 }

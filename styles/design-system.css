@@ -1,0 +1,233 @@
+/* Meridian Bay Capital - Design System CSS Variables */
+/* Luxury-Refined Coastal Theme */
+
+:root {
+  /* ============================================
+     Color System
+     ============================================ */
+
+  /* Primary - Deep Ocean Blue */
+  --color-primary: #0A2463;
+  --color-primary-50: #E8EDF7;
+  --color-primary-100: #C5D1EC;
+  --color-primary-200: #9FB3DF;
+  --color-primary-300: #7995D1;
+  --color-primary-400: #5377C4;
+  --color-primary-500: #2E5090;
+  --color-primary-600: #1E3A6E;
+  --color-primary-700: #0A2463;
+  --color-primary-800: #071A4A;
+  --color-primary-900: #041031;
+
+  /* Secondary - Bay Blue */
+  --color-secondary: #2E5090;
+  --color-secondary-50: #EBF0F7;
+  --color-secondary-100: #D2DFED;
+  --color-secondary-200: #A5BFD9;
+  --color-secondary-300: #789FC5;
+  --color-secondary-400: #4B7FB1;
+  --color-secondary-500: #2E5090;
+  --color-secondary-600: #254073;
+
+  /* Accent - Coastal Gold */
+  --color-accent: #C9A961;
+  --color-accent-50: #FAF7F0;
+  --color-accent-100: #F3EBDA;
+  --color-accent-200: #E7D7B5;
+  --color-accent-300: #DBC390;
+  --color-accent-400: #CFAF6B;
+  --color-accent-500: #C9A961;
+  --color-accent-600: #B08E3E;
+  --color-accent-700: #876D2F;
+
+  /* Success - Forest Green */
+  --color-success: #2D6A4F;
+  --color-success-50: #E9F5F0;
+  --color-success-100: #D3EBE1;
+
+  /* Error */
+  --color-error: #DC2626;
+  --color-error-50: #FEF2F2;
+
+  /* Warning */
+  --color-warning: #D97706;
+  --color-warning-50: #FFFBEB;
+
+  /* Neutral - Sandy Beige */
+  --color-neutral: #E8DCC4;
+  --color-neutral-50: #FDFCFA;
+  --color-neutral-100: #F9F6F0;
+  --color-neutral-200: #F3EDE1;
+  --color-neutral-300: #EDE4D2;
+  --color-neutral-400: #E8DCC4;
+  --color-neutral-500: #D4C4A4;
+
+  /* Background */
+  --color-background: #F8F9FA;
+  --color-background-secondary: #FFFFFF;
+  --color-background-tertiary: #F0F4F8;
+
+  /* Text Colors */
+  --color-text: #2B2D42;
+  --color-text-secondary: #5C5F7A;
+  --color-text-tertiary: #8D90A8;
+  --color-text-inverse: #FFFFFF;
+
+  /* Text on Backgrounds (WCAG AA Compliant) */
+  --text-on-primary: #FFFFFF;
+  --text-on-secondary: #FFFFFF;
+  --text-on-accent: #1A1A1A;
+  --text-on-success: #FFFFFF;
+  --text-on-neutral: #2B2D42;
+  --text-on-dark: #FFFFFF;
+
+  /* ============================================
+     Typography
+     ============================================ */
+
+  /* Font Families */
+  --font-heading: var(--font-montserrat), system-ui, sans-serif;
+  --font-body: var(--font-inter), system-ui, sans-serif;
+  --font-mono: var(--font-ibm-plex-mono), monospace;
+
+  /* Font Sizes */
+  --text-display-xl: 4.5rem;
+  --text-display-lg: 3.5rem;
+  --text-display-md: 2.75rem;
+  --text-display-sm: 2rem;
+  --text-heading-xl: 1.75rem;
+  --text-heading-lg: 1.5rem;
+  --text-heading-md: 1.25rem;
+  --text-heading-sm: 1.125rem;
+  --text-body-lg: 1.125rem;
+  --text-body-md: 1rem;
+  --text-body-sm: 0.875rem;
+  --text-caption: 0.75rem;
+
+  /* Line Heights */
+  --leading-tight: 1.1;
+  --leading-snug: 1.25;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.6;
+  --leading-loose: 1.75;
+
+  /* Letter Spacing */
+  --tracking-tight: -0.02em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.02em;
+  --tracking-wider: 0.05em;
+
+  /* ============================================
+     Spacing
+     ============================================ */
+
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4rem;
+  --space-4xl: 6rem;
+  --space-5xl: 8rem;
+
+  /* ============================================
+     Border Radius
+     ============================================ */
+
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
+  --radius-full: 9999px;
+
+  /* ============================================
+     Shadows
+     ============================================ */
+
+  --shadow-soft: 0 2px 8px -2px rgba(10, 36, 99, 0.08),
+                 0 4px 16px -4px rgba(10, 36, 99, 0.12);
+  --shadow-medium: 0 4px 12px -4px rgba(10, 36, 99, 0.1),
+                   0 8px 24px -8px rgba(10, 36, 99, 0.15);
+  --shadow-large: 0 8px 24px -8px rgba(10, 36, 99, 0.12),
+                  0 16px 48px -16px rgba(10, 36, 99, 0.18);
+  --shadow-glow-gold: 0 0 24px rgba(201, 169, 97, 0.25);
+  --shadow-glow-blue: 0 0 24px rgba(10, 36, 99, 0.2);
+
+  /* ============================================
+     Transitions
+     ============================================ */
+
+  --duration-fast: 150ms;
+  --duration-normal: 300ms;
+  --duration-slow: 500ms;
+  --duration-slower: 700ms;
+
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+
+  /* ============================================
+     Z-Index Scale
+     ============================================ */
+
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-fixed: 300;
+  --z-modal-backdrop: 400;
+  --z-modal: 500;
+  --z-popover: 600;
+  --z-tooltip: 700;
+}
+
+/* ============================================
+   Dark Mode Support (Optional)
+   ============================================ */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Override only if dark mode is implemented */
+  }
+}
+
+/* ============================================
+   Focus States for Accessibility
+   ============================================ */
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* ============================================
+   Selection Styles
+   ============================================ */
+
+::selection {
+  background-color: var(--color-primary-200);
+  color: var(--color-primary-900);
+}
+
+/* ============================================
+   Scrollbar Styling
+   ============================================ */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary-300);
+  border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary-400);
+}
