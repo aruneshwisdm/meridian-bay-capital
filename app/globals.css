@@ -50,7 +50,8 @@
     @apply text-body-md leading-relaxed text-text-secondary;
   }
 
-  a {
+  /* Links - only apply default styling to links in prose content, not buttons */
+  p a, li a, article a, .prose a {
     @apply text-primary transition-colors duration-300 hover:text-secondary;
   }
 
