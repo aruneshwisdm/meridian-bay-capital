@@ -67,7 +67,7 @@ export function Footer() {
 
           {/* Services */}
           <div>
-            <h4 className="font-heading font-semibold text-heading-sm mb-4">Services</h4>
+            <h4 className="font-heading font-semibold text-heading-sm text-white mb-4">Services</h4>
             <ul className="space-y-2.5">
               {FOOTER_LINKS.services.map((link) => (
                 <li key={link.href}>
@@ -84,7 +84,7 @@ export function Footer() {
 
           {/* Company */}
           <div>
-            <h4 className="font-heading font-semibold text-heading-sm mb-4">Company</h4>
+            <h4 className="font-heading font-semibold text-heading-sm text-white mb-4">Company</h4>
             <ul className="space-y-2.5">
               {FOOTER_LINKS.company.map((link) => (
                 <li key={link.href}>
@@ -101,7 +101,7 @@ export function Footer() {
 
           {/* Resources */}
           <div>
-            <h4 className="font-heading font-semibold text-heading-sm mb-4">Resources</h4>
+            <h4 className="font-heading font-semibold text-heading-sm text-white mb-4">Resources</h4>
             <ul className="space-y-2.5">
               {FOOTER_LINKS.resources.map((link) => (
                 <li key={link.href}>
