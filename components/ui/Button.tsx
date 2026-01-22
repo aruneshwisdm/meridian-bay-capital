@@ -39,27 +39,27 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 
     const variants = {
       primary: cn(
-        "bg-primary text-white",
+        "bg-primary !text-white",
         "hover:bg-primary-600 active:bg-primary-800",
         "focus-visible:ring-primary"
       ),
       secondary: cn(
-        "bg-white text-primary border-2 border-primary",
+        "bg-white !text-primary border-2 border-primary",
         "hover:bg-primary-50 active:bg-primary-100",
         "focus-visible:ring-primary"
       ),
       accent: cn(
-        "bg-accent text-text",
+        "bg-accent !text-text",
         "hover:bg-accent-600 active:bg-accent-700",
         "focus-visible:ring-accent shadow-glow-gold"
       ),
       ghost: cn(
-        "bg-transparent text-primary",
+        "bg-transparent !text-primary",
         "hover:bg-primary-50 active:bg-primary-100",
         "focus-visible:ring-primary"
       ),
       "outline-white": cn(
-        "bg-transparent text-white border-2 border-white",
+        "bg-transparent !text-white border-2 border-white",
         "hover:bg-white/10 active:bg-white/20",
         "focus-visible:ring-white"
       ),
