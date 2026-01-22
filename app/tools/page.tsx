@@ -20,7 +20,7 @@ export default function ToolsPage() {
         </div>
 
         <div className="container-main relative z-10 text-center">
-          <h1 className="font-heading font-bold text-display-md md:text-display-lg mb-4">
+          <h1 className="font-heading font-bold text-display-md md:text-display-lg mb-4 text-white">
             Financial Planning Tools
           </h1>
           <p className="text-body-lg md:text-heading-lg text-white/90 max-w-2xl mx-auto">

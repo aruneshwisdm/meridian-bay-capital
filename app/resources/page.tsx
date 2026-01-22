@@ -85,7 +85,7 @@ export default function ResourcesPage() {
         </div>
 
         <div className="container-main relative z-10 text-center">
-          <h1 className="font-heading font-bold text-display-md md:text-display-lg mb-6">
+          <h1 className="font-heading font-bold text-display-md md:text-display-lg mb-6 text-white">
             Financial Resources
           </h1>
           <p className="text-body-lg md:text-heading-lg text-white/90 max-w-2xl mx-auto">

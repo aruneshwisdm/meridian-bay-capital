@@ -48,7 +48,7 @@ export function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          <h1 className="font-heading font-bold text-display-md md:text-display-lg lg:text-display-xl mb-6 max-w-4xl mx-auto leading-tight">
+          <h1 className="font-heading font-bold text-display-md md:text-display-lg lg:text-display-xl mb-6 max-w-4xl mx-auto leading-tight text-white">
             Navigate Your Financial Future
           </h1>
         </motion.div>

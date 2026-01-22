@@ -131,7 +131,7 @@ export default function ContactPage() {
       {/* Hero */}
       <section className="relative bg-gradient-ocean text-white py-16 md:py-20">
         <div className="container-main relative z-10 text-center">
-          <h1 className="font-heading font-bold text-display-md md:text-display-lg mb-4">
+          <h1 className="font-heading font-bold text-display-md md:text-display-lg mb-4 text-white">
             Start a Conversation
           </h1>
           <p className="text-body-lg text-white/90 max-w-xl mx-auto">

@@ -63,7 +63,7 @@ export function ServiceHero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="font-heading font-bold text-display-md md:text-display-lg mb-6"
+            className="font-heading font-bold text-display-md md:text-display-lg mb-6 text-white"
           >
             Our Services
           </motion.h1>
